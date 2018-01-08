@@ -27,7 +27,6 @@ local newWorld = world.new(
 newWorld:init(10, 10)
 for _ = 1, 10 do
   utils.sleep(1)
-  os.execute("clear")
   newWorld:draw()
 
   --run script in world

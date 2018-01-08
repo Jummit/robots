@@ -1,3 +1,4 @@
+local utils = require "Documents/Programming/Lua/Love/Robots/engine/utils"
 return {
   new = function(w, h, key, tiles)
     math.randomseed(key)
@@ -12,6 +13,7 @@ return {
       },
       draw = function(self)
         math.randomseed(key)
+        os.execute("clear")
 
         io.write(" /--")
         for _ = 1, self.w do io.write("-") end
