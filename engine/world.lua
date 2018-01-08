@@ -49,8 +49,13 @@ return {
           {
             math = math,
             table = table,
+            error = error,
             place = function(x, y, tile)
-              self[self.robot.x][self.robot.y] = tiles[tile]
+              if tiles[tile] then
+                self[self.robot.x][self.robot.y] = tiles[tile]
+              else
+                error("place: tile "..tile.." does not exist!")
+              end
             end,
             world = {
               w = self.w,
