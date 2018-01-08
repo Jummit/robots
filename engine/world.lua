@@ -41,51 +41,6 @@ return {
         for _ = 1, self.w-1 do io.write("-") end
         io.write("--/\n")
       end,
-      runScript = function(self, script)
-        scriptFunc, message = load(
-          script.script,
-          script.name..".rbs",
-          "t",
-          {
-            math = math,
-            table = table,
-            error = error,
-            place = function(x, y, tile)
-              if tiles[tile] then
-                self[self.robot.x][self.robot.y] = tiles[tile]
-              else
-                error("place: tile "..tile.." does not exist!")
-              end
-            end,
-            world = {
-              w = self.w,
-              h = self.h
-            },
-            move = function(x, y)
-              if math.abs(x)+math.abs(y) > 1 then
-                x = 0
-              end
-              self.robot.x = self.robot.x + x
-              self.robot.y = self.robot.y + y
-            end,
-            build = function(x, y, building)
-              if math.abs(x)+math.abs(y) == 1 then
-                self[self.robot.x+x][self.robot.y+y] = tiles[building]
-              else
-                error("build: you can't reach this position!")
-              end
-            end
-          }
-        )
-        if not scriptFunc then
-          print(message)
-        else
-          succ, message = pcall(scriptFunc)
-          if not succ then
-            print(message)
-          end
-        end
-      end,
       init = function(self)
         for x = 1, self.w do
           self[x] = {}
