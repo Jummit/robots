@@ -35,6 +35,7 @@ return {
             for robotNum = 1, #self.robots do
               if self.robots[robotNum].x == x and self.robots[robotNum].y == y then
                 io.write("#")
+                math.random()
                 robotDrawn = true
                 break
               end
