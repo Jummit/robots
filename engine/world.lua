@@ -1,5 +1,6 @@
 local utils = require "Documents/Programming/Lua/Love/Robots/engine/utils"
 local script = require "Documents/Programming/Lua/Love/Robots/engine/script"
+
 return {
   new = function(w, h, key, tiles)
     math.randomseed(key)
@@ -51,9 +52,6 @@ return {
         io.write(" \\-")
         for _ = 1, self.w-1 do io.write("-") end
         io.write("--/\n")
-      end,
-      update = function(self)
-        script.run(self)
       end,
       init = function(self)
         for robotNum = 1, #self.robots do
