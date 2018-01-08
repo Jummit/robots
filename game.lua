@@ -8,7 +8,23 @@ os.execute("clear")
 local script = engine.editScript()
 
 --make new world and draw it
-local world = engine.newWorld(80, 20, 2040192)
+local world = engine.newWorld(
+  80, 20, 2040192,
+  {
+    ground = {
+      name = "ground",
+      char = {".", ",", "¸"}
+    },
+    stone = {
+      name = "stone",
+      char = {"o", "O", "0", "Q"}
+    },
+    machine = {
+      name = "machine",
+      char = {"H"}
+    }
+  }
+)
 for _ = 1, 10 do
   utils.sleep(1)
   os.execute("clear")

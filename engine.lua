@@ -13,40 +13,8 @@ engine.editScript = function()
     end
   end
 end
-engine.newTile = function(tab)
-  return setmetatable(
-    tab,
-    {
-      __index = {
-        draw = function(self)
-          io.write(self.char[math.random(1, #self.char)])
-        end
-      }
-    }
-  )
-end
 engine.newWorld = function(w, h, key, tiles)
   math.randomseed(key)
-  tiles = tiles or {
-    ground = engine.newTile(
-      {
-        name = "ground",
-        char = {".", ",", "¸"}
-      }
-    ),
-    stone = engine.newTile(
-      {
-        name = "stone",
-        char = {"o", "O", "0", "Q"}
-      }
-    ),
-    machine = engine.newTile(
-      {
-        name = "machine",
-        char = {"H"}
-      }
-    )
-  }
   local world = {
     w = w,
     h = h,
@@ -88,7 +56,7 @@ engine.newWorld = function(w, h, key, tiles)
               if self.robot.x == x and self.robot.y == y then
                 io.write("#")
               else
-                self[x][y]:draw()
+                io.write(self[x][y].char[math.random(1, #self[x][y].char)])
               end
             end
             io.write("| |\n")
