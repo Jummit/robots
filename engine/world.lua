@@ -47,8 +47,8 @@ return {
           {
             math = math,
             table = table,
-            set = function(x, y)
-              self[x][y] = tiles.stone
+            place = function(x, y, tile)
+              self[self.robot.x][self.robot.y] = tiles[tile]
             end,
             world = {
               w = self.w,

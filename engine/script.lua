@@ -4,7 +4,7 @@ return {
     local file = io.open(path, "r")
 
     for line in file:lines(6) do
-      script = script.." "..line
+      script = script..line
     end
     return {
       name = string.match(path, "[^/]+$"),

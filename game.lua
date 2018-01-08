@@ -4,6 +4,7 @@ local script = require "Documents/Programming/Lua/Love/Robots/engine/script"
 
 local sc = script.loadScript("Documents/Programming/Lua/Love/Robots/scripts/test.rsc")
 os.execute("clear")
+print(sc.script)
 
 --make new world and draw it
 local newWorld = world.new(
