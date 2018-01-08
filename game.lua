@@ -25,6 +25,7 @@ local world = engine.newWorld(
     }
   }
 )
+world:init(10, 10)
 for _ = 1, 10 do
   utils.sleep(1)
   os.execute("clear")
