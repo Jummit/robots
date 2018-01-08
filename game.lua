@@ -1,7 +1,8 @@
 local world = require "Documents/Programming/Lua/Love/Robots/engine/world"
 local utils = require "Documents/Programming/Lua/Love/Robots/engine/utils"
+local script = require "Documents/Programming/Lua/Love/Robots/engine/script"
 
---clear screen
+local sc = script.loadScript("Documents/Programming/Lua/Love/Robots/scripts/test.rsc")
 os.execute("clear")
 
 --make new world and draw it
@@ -29,5 +30,5 @@ for _ = 1, 10 do
   newWorld:draw()
 
   --run script in world
-  --newWorld:runScript(script)
+  newWorld:runScript(sc)
 end
