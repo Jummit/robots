@@ -17,18 +17,3 @@ for _ = 1, 10 do
   --run script in world
   world:runScript(script)
 end
-
---[[ script for filling the screen
-for x = 1, world.w do
-  for y = 1, world.h do
-    set(x, y)
-  end
-end
-]]
-
---[[ script for walking and placing
-for _ = 1, 10 do
-  move(math.random(-1, 1), math.random(-1, 1))
-  set(math.random(-1, 1), math.random(-1, 1), "stone")
-end
-]]
