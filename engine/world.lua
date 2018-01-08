@@ -1,5 +1,5 @@
-local engine = {
-  newWorld = function(w, h, key, tiles)
+return {
+  new = function(w, h, key, tiles)
     math.randomseed(key)
     return {
       key = key,
@@ -96,5 +96,3 @@ local engine = {
     }
   end
 }
-
-return engine

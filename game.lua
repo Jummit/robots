@@ -1,14 +1,11 @@
-local engine = require "Documents/Programming/Lua/Love/Robots/engine"
-local utils = require "Documents/Programming/Lua/Love/Robots/utils"
+local world = require "Documents/Programming/Lua/Love/Robots/engine/world"
+local utils = require "Documents/Programming/Lua/Love/Robots/engine/utils"
 
 --clear screen
 os.execute("clear")
 
---edit script for robot
-local script = engine.editScript()
-
 --make new world and draw it
-local world = engine.newWorld(
+local newWorld = world.new(
   80, 20, 2040192,
   {
     ground = {
@@ -25,12 +22,12 @@ local world = engine.newWorld(
     }
   }
 )
-world:init(10, 10)
+newWorld:init(10, 10)
 for _ = 1, 10 do
   utils.sleep(1)
   os.execute("clear")
-  world:draw()
+  newWorld:draw()
 
   --run script in world
-  world:runScript(script)
+  --newWorld:runScript(script)
 end
