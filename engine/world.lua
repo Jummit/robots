@@ -21,13 +21,7 @@ return {
         math.randomseed(key)
         os.execute("clear")
 
-        io.write(" /--")
-        for _ = 1, self.w do io.write("-") end
-        io.write("-\\\n")
-        io.write("/ /")
-        for _ = 1, self.w do io.write("-") end
-        io.write("\\ \\\n")
-
+        utils.drawUpperBorder(self.w)
         for y = 1, self.h do
           io.write("| |")
           for x = 1, self.w do
@@ -46,13 +40,7 @@ return {
           end
           io.write("| |\n")
         end
-
-        io.write("\\ \\")
-        for _ = 1, self.w do io.write("-") end
-        io.write("/ /\n")
-        io.write(" \\-")
-        for _ = 1, self.w-1 do io.write("-") end
-        io.write("--/\n")
+        utils.drawLowerBorder(self.w)
       end,
       init = function(self)
         for robotNum = 1, #self.robots do
